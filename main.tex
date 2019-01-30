@@ -1,0 +1,93 @@
+
+\documentclass[modern,linenumbers]{aastex62}
+\usepackage{newtxtext,newtxmath} % this is causing the etoolbox warning
+\usepackage[USenglish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{comment}
+\usepackage{enumitem}
+\setlist{noitemsep}
+
+\graphicspath{{./}{./figures/}}
+
+% Add your own macros here:
+\newcommand{\Contributors}[1]{ {\footnotesize [\textit{#1}]}}
+\newcommand{\Contact}[1]{ {\footnotesize [\textbf{#1}]}}
+\newcommand{\Comment}[3]{\textcolor{#1}{(#2: #3)}}
+\newcommand{\TSL}[1]{\Comment{red}{TSL}{#1}} % Ting Li's comments
+
+% ======================================================================
+
+\begin{document}
+
+\title{\Large Petabytes to Science}
+
+\input{authors.tex}
+
+\begin{abstract}
+Abstract is here
+\end{abstract}
+\keywords{keywords are here}
+
+\tableofcontents 
+
+\textcolor{red}{Please read the following instruction before editing:} 
+
+0. please feel free to email Ting Li (tingli@fnal.gov) if anything is not clear.
+
+1. all the writing should be in one of the .tex file for a particular chapter. There shall be *NO* major text in this main.tex. If you want to create a new chapter for this document, please make a new .tex file and then use the input command to include the specific .tex file.
+
+2. please use one of the following citation format:
+
+\cite{Li2018}
+\citep{Li2018ApJ...866...22L}
+\citet{2018ApJ...866...22L}
+The second and third one are preferred is there are multiple papers from the same author in one year, and the paper you are referring is NOT the most cited paper among the same author + same year. If you do the cite in one of these formats above, you do not need to add the bibliography to the main.bib file, as I will compile the bibliography at the end. If you do not follow this citation format, please add the bibliography to the main.bib.
+
+3. If you are going to contribute to a chapter, please put your name in the contributor category. If you are the contact person/lead for a chapter, please put your name in the contact category.
+
+4. Figures should be all in the "figures" folder. Example for how to insert a figure in latex is given below. 
+
+5. Feel free to use either the comment feature in overleaf itself, or use the comment command from the macro defined above. Here is an example of how I put down my comments in latex: \TSL{Thanks for reading.}
+
+5. more to come...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Introduction
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{intro.tex}
+
+\input{science.tex}
+
+\input{data.tex}
+
+\input{technology.tex}
+
+\input{software.tex}
+
+\input{algorithms.tex}
+
+\input{iwft.tex}
+
+\input{epo.tex}
+
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.85\textwidth]{example.png}
+%\caption{caption here \label{fig:streamsurveys}}
+%\end{figure}
+
+
+\input{conclusion.tex}
+
+
+% ----------------------------------------------------------------------
+
+\subsection*{Acknowledgments}
+
+\bibliographystyle{yahapj}
+\bibliography{main}
+
+\end{document}
+
+% ======================================================================
